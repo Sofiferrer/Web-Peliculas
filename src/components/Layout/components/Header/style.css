@@ -1,0 +1,11 @@
+.header-container {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+}
