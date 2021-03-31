@@ -1,9 +1,12 @@
 import React, { FC } from "react";
-import "./style.css"
+import { movie } from '../../api'
+import { Slider } from './components'
 
-const Main: FC = () => {
+const Main: FC = ({ children }) => {
+    movie.get();
     return (
         <div className="main-container">
+            <Slider />
             Main
         </div>
     );

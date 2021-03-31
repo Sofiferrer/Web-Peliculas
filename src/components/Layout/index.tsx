@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import { Footer, Header, Slider } from './components';
+import { Footer, Header } from './components';
 import { Main } from '../Main'
+import './style.css'
 
 
 interface Props {
@@ -13,7 +14,6 @@ const Layout: FC<Props> = ({ children, hideHeader = false, hideAside = false, hi
     return (
         <div>
             <Header />
-            <Slider />
             <Main />
             <Footer />
         </div>

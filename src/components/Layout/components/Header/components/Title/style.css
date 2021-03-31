@@ -1,0 +1,15 @@
+.header-title {
+    height: 20vh;
+    background-image: url(../../../../../../img/919612.jpg);
+    background-size: contain;
+    color: rgb(5, 49, 52);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.header-title h1 {
+    font-size: 8vw !important;
+}

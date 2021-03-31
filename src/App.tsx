@@ -1,10 +1,12 @@
 import React from 'react';
 import { Layout } from './components'
 
+const App = () => {
 
-function App() {
   return (
-    <Layout />
+    <div>
+      <Layout />
+    </div>
   );
 }
 

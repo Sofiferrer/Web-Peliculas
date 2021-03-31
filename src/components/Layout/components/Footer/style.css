@@ -1,3 +1,24 @@
 .footer-container {
-    background-color: orange;
+    display: flex;
+    justify-content: center;
+    height: 10vh;
+    background-image: url(../../../../img/ORVZE80.jpg);
+    background-size: 12%;
+    margin-top: auto;
+    margin-bottom: 0px;
+}
+
+.footer-contain {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(240, 248, 255, 0.8);
+}
+
+.footer-text {
+    align-self: flex-end;
+    color: black;
+}
+
+.footer-img {
+    height: 10vh;
 }
