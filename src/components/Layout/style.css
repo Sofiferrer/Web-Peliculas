@@ -1,0 +1,8 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-color: rgb(5, 49, 52);
+    min-height: 100%;
+}

@@ -1,0 +1,15 @@
+.navbar-container {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.nav-link {
+    color: rgb(253, 253, 253) !important;
+    margin-left: 20px;
+}
