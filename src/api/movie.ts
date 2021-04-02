@@ -8,9 +8,14 @@ type GetMoviesResponse = {
     total_results: number
 }
 
-const get = async (): Promise<MovieType[]> => {
-    const { data } = await api.get<GetMoviesResponse>('movie/now_playing')
+const getLatest = async (): Promise<MovieType[]> => {
+    const { data } = await api.get<GetMoviesResponse>('movie/upcoming')
     return data.results;
 };
 
-export const movie = { get };
+const getPopular = async (): Promise<MovieType[]> => {
+    const { data } = await api.get<GetMoviesResponse>('movie/popular')
+    return data.results;
+};
+
+export const movie = { getLatest, getPopular };

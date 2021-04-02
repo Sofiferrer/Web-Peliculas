@@ -25,7 +25,6 @@
     width: 99%;
     margin: auto;
     margin-top: 4vh;
-    padding-left: 50px;
     padding-top: 30px;
     max-height: 80%;
     overflow-y: auto;
@@ -43,6 +42,20 @@
 
 .list-style li {
     margin-bottom: 15px;
+}
+
+.list-img {
+    max-height: 8vh;
+    margin-right: 15px;
+}
+
+.list-button {
+    background-color: rgb(3, 122, 130);
+    border-color: rgb(3, 122, 130);
+    max-height: 8vh;
+    float: right;
+    margin-right: 20px;
+    border-radius: 50%;
 }
 
 
