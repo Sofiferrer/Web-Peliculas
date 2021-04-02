@@ -1,0 +1,95 @@
+.lists-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.list {
+    background-color: rgb(235, 71, 72);
+    height: 70vh;
+    width: 35%;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+.list-header {
+    color: aliceblue;
+    font-size: larger;
+    height: 9vh;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+}
+
+.movie-list {
+    background-color: white;
+    width: 99%;
+    margin: auto;
+    margin-top: 4vh;
+    padding-left: 50px;
+    padding-top: 30px;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.list-style {
+    list-style: none;
+}
+
+.list-style a {
+    text-decoration: none;
+    color: black;
+    margin-bottom: 30px;
+}
+
+.list-style li {
+    margin-bottom: 15px;
+}
+
+
+@media (min-width: 820px) and (max-width: 1024px)
+
+/*tablets landscape*/
+    {
+    body {
+        font-size: 15px;
+    }
+}
+
+
+@media (min-width: 480px) and (max-width: 819px)
+/*tablets*/
+
+    {
+    body {
+        font-size: 14px;
+    }
+
+    .lists-container {
+        display: block;
+    }
+
+    .list {
+        width: 80%;
+        margin: auto;
+        margin-top: 10vh;
+    }
+}
+
+@media (min-width: 200px) and (max-width: 480px)
+/*celulares*/
+
+    {
+    body {
+        font-size: 10px;
+    }
+
+    .lists-container {
+        display: block;
+    }
+
+    .list {
+        width: 80%;
+        margin: auto;
+        margin-top: 10vh;
+    }
+}
