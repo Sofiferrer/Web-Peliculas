@@ -9,7 +9,7 @@ type GetMoviesResponse = {
 }
 
 const get = async (): Promise<MovieType[]> => {
-    const { data } = await api.get<GetMoviesResponse>('movie/upcoming')
+    const { data } = await api.get<GetMoviesResponse>('movie/now_playing')
     return data.results;
 };
 
