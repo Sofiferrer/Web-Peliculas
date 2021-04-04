@@ -17,18 +17,16 @@ const Slider: FC<Props> = () => {
         })
     }, []);
 
-    console.log(movies);
-
-    // data = { production_companies, genres, production_countries, id, adult, backdrop_path, belongs_to_collection, budget, genre_ids, homepage, imdb_id, original_language, original_title, overview, popularity, poster_path, release_date, title, video, vote_average, vote_count, revenue, runtime, spoken_languages, status, tagline }
+    const topMovies = movies && movies.filter(movie => movie.vote_average >= 7.5)
 
     const imgBase = "https://image.tmdb.org/t/p/"
-    const imgWidth = "w500"
+    const imgWidth = "w1280"
 
     return (
 
         <div>
             <Carousel>
-                {movies && movies.map((movie: MovieType) => (
+                {topMovies && topMovies.map((movie: MovieType) => (
                     <Carousel.Item>
                         <img
                             className="d-block w-100 slider-img"

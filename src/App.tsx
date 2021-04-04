@@ -1,13 +1,8 @@
 import React from 'react';
-import { Layout } from './components'
+import { Screens } from './screens'
 
 const App = () => {
-
-  return (
-    <div>
-      <Layout />
-    </div>
-  );
+  return <Screens />
 }
 
 export default App;

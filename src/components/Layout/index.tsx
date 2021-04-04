@@ -1,20 +1,14 @@
 import React, { FC } from 'react';
 import { Footer, Header } from './components';
-import { Main } from '../Main'
+import { Slider, Lists } from '../Main/components'
 import './style.css'
 
-
-interface Props {
-    hideHeader?: boolean,
-    hideAside?: boolean,
-    hideFooter?: boolean
-}
-
-const Layout: FC<Props> = ({ children, hideHeader = false, hideAside = false, hideFooter = false }) => {
+const Layout: FC = () => {
     return (
         <div>
             <Header />
-            <Main />
+            <Slider />
+            <Lists />
             <Footer />
         </div>
     );
