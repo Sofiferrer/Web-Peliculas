@@ -9,7 +9,7 @@ interface Props {
     data?: MovieType,
 }
 
-const Lists: FC = () => {
+const Lists: FC<Props> = () => {
 
     const [lastMovies, setLastMovies] = useState<MovieType[]>();
 
@@ -19,8 +19,6 @@ const Lists: FC = () => {
         })
     }, []);
 
-    console.log(lastMovies);
-
     const [popularMovies, setPopularMovies] = useState<MovieType[]>();
 
     useEffect(() => {
@@ -29,7 +27,7 @@ const Lists: FC = () => {
         })
     }, []);
 
-    console.log(popularMovies);
+    console.log(popularMovies)
 
     const imgBase = "https://image.tmdb.org/t/p/"
     const imgWidth = "w500"
@@ -43,7 +41,7 @@ const Lists: FC = () => {
                 <div className="movie-list">
                     <ul className="list-style">
                         {lastMovies && lastMovies.map((movie: MovieType) => (
-                            <li><img src={imgBase + imgWidth + movie.poster_path} alt="Avatar" className="list-img" /><a href="#">{movie.title}</a><Button variant="info" className="list-button"><Eye /></Button></li>
+                            <li><img src={imgBase + imgWidth + movie.poster_path} alt="Avatar" className="list-img" /><a href={"/ficha/id=" + movie.id}>{movie.title}</a><a href={"/ficha/id=" + movie.id}><Button variant="info" className="list-button"><Eye /></Button></a></li>
                         ))
                         }
                     </ul>
@@ -56,7 +54,7 @@ const Lists: FC = () => {
                 <div className="movie-list">
                     <ul className="list-style">
                         {popularMovies && popularMovies.map((movie: MovieType) => (
-                            <li><img src={imgBase + imgWidth + movie.poster_path} alt="Avatar" className="list-img" /><a href="#">{movie.title}</a><Button variant="info" className="list-button"><Eye /></Button></li>
+                            <li><img src={imgBase + imgWidth + movie.poster_path} alt="Avatar" className="list-img" /><a href={"/ficha/id=" + movie.id}>{movie.title}</a><a href={"/ficha/id=" + movie.id}><Button variant="info" className="list-button"><Eye /></Button></a></li>
                         ))
                         }
                     </ul>

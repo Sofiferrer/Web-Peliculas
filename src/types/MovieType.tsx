@@ -1,10 +1,10 @@
 type Genre = {
-    id: number,
+    id: string,
     name: string
 }
 
 type ProductionCompanie = {
-    id: string,
+    id: number,
     logo_path: string | null,
     name: string,
     origin_country: string
@@ -29,7 +29,7 @@ export type MovieType = {
     genres: Genre[],
     genre_ids: [],
     homepage: string,
-    id: number,
+    id: string | null,
     imdb_id: string,
     original_language: string,
     original_title: string,
@@ -46,6 +46,7 @@ export type MovieType = {
     tagline: string,
     title: string,
     video: boolean,
-    vote_average: string,
-    vote_count: number
+    vote_average: number,
+    vote_count: number,
+    query: string
 }

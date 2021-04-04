@@ -3,7 +3,7 @@ import { Title } from "./components/Title";
 import { Navbarr } from "./components/Navbar";
 
 
-const Header: FC = ({ children }) => {
+const Header: FC = () => {
     return (
         <div>
             <Title />
