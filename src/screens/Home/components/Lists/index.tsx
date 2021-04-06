@@ -4,6 +4,7 @@ import { movie } from "../../../../api/movie"
 import { MovieType } from "../../../../types/MovieType"
 import { Button } from 'react-bootstrap'
 import { CameraReels, Star, Eye } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
 
 interface Props {
     data?: MovieType,
@@ -27,8 +28,6 @@ const Lists: FC<Props> = () => {
         })
     }, []);
 
-    console.log(popularMovies)
-
     const imgBase = "https://image.tmdb.org/t/p/"
     const imgWidth = "w500"
 
@@ -41,7 +40,13 @@ const Lists: FC<Props> = () => {
                 <div className="movie-list">
                     <ul className="list-style">
                         {lastMovies && lastMovies.map((movie: MovieType) => (
-                            <li><img src={imgBase + imgWidth + movie.poster_path} alt="Avatar" className="list-img" /><a href={"/ficha/id=" + movie.id}>{movie.title}</a><a href={"/ficha/id=" + movie.id}><Button variant="info" className="list-button"><Eye /></Button></a></li>
+                            <li>
+                                <Link to={`/ficha/${movie.id}`}>
+                                    <img src={imgBase + imgWidth + movie.poster_path} alt="Avatar" className="list-img" />
+                                    <p>{movie.title}</p>
+                                    <Button variant="info" className="list-button"><Eye /></Button>
+                                </Link>
+                            </li>
                         ))
                         }
                     </ul>
@@ -54,7 +59,13 @@ const Lists: FC<Props> = () => {
                 <div className="movie-list">
                     <ul className="list-style">
                         {popularMovies && popularMovies.map((movie: MovieType) => (
-                            <li><img src={imgBase + imgWidth + movie.poster_path} alt="Avatar" className="list-img" /><a href={"/ficha/id=" + movie.id}>{movie.title}</a><a href={"/ficha/id=" + movie.id}><Button variant="info" className="list-button"><Eye /></Button></a></li>
+                            <li>
+                                <Link to={`/ficha/${movie.id}`}>
+                                    <img src={imgBase + imgWidth + movie.poster_path} alt="Avatar" className="list-img" />
+                                    <p>{movie.title}</p>
+                                    <Button variant="info" className="list-button"><Eye /></Button>
+                                </Link>
+                            </li>
                         ))
                         }
                     </ul>

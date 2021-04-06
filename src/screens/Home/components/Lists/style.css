@@ -4,7 +4,7 @@
 }
 
 .list {
-    background-color: rgb(235, 71, 72);
+    background-color: rgb(5, 49, 52);
     height: 70vh;
     width: 35%;
     margin-top: 10vh;
@@ -35,9 +35,12 @@
 }
 
 .list-style a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     text-decoration: none;
     color: black;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .list-style li {
@@ -46,16 +49,13 @@
 
 .list-img {
     max-height: 8vh;
-    margin-right: 15px;
 }
 
 .list-button {
     background-color: rgb(3, 122, 130);
     border-color: rgb(3, 122, 130);
     max-height: 8vh;
-    float: right;
-    margin-right: 20px;
-    border-radius: 50%;
+    margin-right: 10px;
 }
 
 
