@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import './style.css';
 
 
-const Title: FC = () => {
+const Header: FC = () => {
     return (
         <div className="header-title">
             <h1>MOVIE APP</h1>
@@ -10,4 +10,4 @@ const Title: FC = () => {
     );
 }
 
-export { Title };
+export { Header };

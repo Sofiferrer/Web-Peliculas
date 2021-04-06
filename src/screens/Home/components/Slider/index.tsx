@@ -33,8 +33,8 @@ const Slider: FC<Props> = () => {
                             src={imgBase + imgWidth + movie.backdrop_path}
                             alt="Imagen"
                         />
-                        <Carousel.Caption>
-                            <h3>{movie.title}</h3>
+                        <Carousel.Caption className="carousel-caption">
+                            <a href={"/ficha/id=" + movie.id}><h3>{movie.title}</h3></a>
                             <p>{movie.overview}</p>
                         </Carousel.Caption>
                     </Carousel.Item>

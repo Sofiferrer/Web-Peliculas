@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./style.css"
-import Prueba from '../../../../img/film.png'
+import Prueba from '../../../img/film.png'
 
 const Footer: FC = () => {
     return (

@@ -4,7 +4,7 @@ type Genre = {
 }
 
 type ProductionCompanie = {
-    id: number,
+    id: string,
     logo_path: string | null,
     name: string,
     origin_country: string
