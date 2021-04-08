@@ -1,65 +1,64 @@
 import React, { FC, useState, useEffect } from 'react';
-import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './style.css'
-import { movie } from '../../../api';
+import { movie } from '../../../api'
+import { VideoType } from '../../../types/VideoType'
 import { MovieType } from '../../../types/MovieType';
+import { Genre } from '../../../types/MovieType'
 
 interface Props {
-    id: string
+    peli: MovieType,
 }
 
-const File: FC<Props> = ({ id }) => {
+const File: FC<Props> = ({ peli }) => {
 
-    const [poster, setPoster] = useState('');
-    const [title, setTitle] = useState('');
-    const [movieCard, setMovieCard] = useState({});
+    const [video, setVideo] = useState<VideoType | undefined>(undefined);
 
     useEffect(() => {
-        if (id) {
-            movie.getMovieById(id)
-                .then(response => {
-                    setMovieCard(response)
-                })
-        }
+        movie.getVideo(`${peli.id}`)
+            .then(response => {
+                setVideo(response)
+            })
     }, []);
 
-    console.log(movieCard);
+    console.log(video);
 
-    for (const prop in movieCard) {
-        console.log(prop);
-    }
-
-    //console.log(movieCard.title)
+    const imgBase = "https://image.tmdb.org/t/p/"
+    const posterWidth = "w500"
+    const backgrounWidth = "original"
+    const videoBase = "https://www.youtube.com/watch?v="
 
     return (
-        <div className="container">
-            <div className="poster">
-                <div className="poster-img">
-                    POSTER
+        <div className="detail-screen" style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imgBase + backgrounWidth + peli.backdrop_path})`,
+        }}>
+            <div className="container">
+                <div className="poster">
+                    <div className="poster-img" style={{
+                        backgroundImage: `url(${imgBase + posterWidth + peli.poster_path})`,
+                    }}>
+                    </div>
                 </div>
-                {/* <img src={"https://image.tmdb.org/t/p/original//yHpNgjEXzZ557YiZ2r3VrKid788.jpg"} alt="Poster" /> */}
-            </div>
-            <div className="info">
-                <div className="header">
-                    <h2>TITLE<span>anio</span></h2>
-                    <Link to={'video'}>
-                        <span>
-                            Ver Trailer
-                                </span>
-                    </Link>
-                    {/* <Button className="header-button">VER TRAILER</Button> */}
-                </div>
-                <div className="content">
-                    <h6>SINAPSIS</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit officiis impedit dolorum assumenda ullam amet vitae laboriosam possimus rerum suscipit, delectus omnis ipsam, expedita eveniet sequi autem laudantium vel placeat?</p>
-                </div>
-                <div className="gender">
-                    <h6>GENEROS</h6>
-                    <ul>
-                        <li>Genero1</li>
-                        <li>Genero2</li>
-                    </ul>
+                <div className="info">
+                    <div className="header">
+                        <h2>{peli.title}<span>{peli.release_date.split('-', 1)}</span></h2>
+                        <a target="_blank" href={videoBase + video?.results[0].key}><span>Ver Trailer</span></a>
+                    </div>
+                    <div className="content">
+                        <h6>SINAPSIS</h6>
+                        <p>{peli.overview}</p>
+                    </div>
+                    <div className="gender">
+                        <h6>GENEROS</h6>
+                        <ul>
+                            {peli.genres && peli.genres.map((genre: Genre) => (
+                                <li>
+                                    {genre.name}
+                                </li>
+                            ))
+                            }
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

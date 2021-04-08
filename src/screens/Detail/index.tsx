@@ -1,18 +1,37 @@
-import React, { FC } from 'react';
-import { RouteComponentProps, useHistory } from 'react-router-dom'
-import { Layout } from '../../Layout';
-import { File } from './File.tsx';
+import React, { FC, useState, useEffect } from 'react';
+import { RouteComponentProps } from 'react-router-dom'
+import { File } from './File.tsx/index';
+import { Navbarr, Footer } from '../../Layout/components'
+import { MovieType } from '../../types/MovieType'
+import { VideoType } from '../../types/VideoType'
+import { movie } from '../../api/movie'
 
 const Detail: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
 
     const id = match.params.id;
 
+    const [movieFile, setMovieFile] = useState<MovieType | undefined>(undefined);
+
+    useEffect(() => {
+        movie.getMovieById(id)
+            .then(response => {
+                setMovieFile(response)
+            })
+    }, []);
+
+    console.log(movieFile)
+
     return (
-        <div>
-            <Layout>
-                <File id={id} />
-            </Layout>
-        </div>
+
+        <>
+            <Navbarr />
+            {movieFile
+                ? <File peli={movieFile} />
+                : 'No se encontro la pelicula'
+            }
+            <Footer />
+
+        </>
 
     );
 }

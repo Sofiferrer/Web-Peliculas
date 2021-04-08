@@ -1,11 +1,18 @@
-import { MovieType } from "../types/MovieType"
 import { api } from "./api"
+import { MovieType } from "../types/MovieType"
+import { VideoType } from "../types/VideoType"
+
 
 type GetMoviesResponse = {
     results: MovieType[],
     page: number,
     total_pages: number,
     total_results: number
+}
+
+type GetVideoResponse = {
+    id: string,
+    results: VideoType[],
 }
 
 const getLatest = async (): Promise<MovieType[]> => {
@@ -19,8 +26,13 @@ const getPopular = async (): Promise<MovieType[]> => {
 };
 
 const getMovieById = async (id: string) => {
-    const data = await api.get<GetMoviesResponse>('movie/' + id)
+    const data = await api.get<MovieType>('movie/' + id)
     return data.data;
 }
 
-export const movie = { getLatest, getPopular, getMovieById };
+const getVideo = async (id: string) => {
+    const data = await api.get<VideoType>('movie/' + id + '/videos')
+    return data.data;
+}
+
+export const movie = { getLatest, getPopular, getMovieById, getVideo };

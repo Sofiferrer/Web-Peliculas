@@ -34,7 +34,7 @@ const Slider: FC<Props> = () => {
                             alt="Imagen"
                         />
                         <Carousel.Caption className="carousel-caption">
-                            <a href={"/ficha/id=" + movie.id}><h3>{movie.title}</h3></a>
+                            <a href={"/ficha/" + movie.id}><h3>{movie.title}</h3></a>
                             <p>{movie.overview}</p>
                         </Carousel.Caption>
                     </Carousel.Item>
