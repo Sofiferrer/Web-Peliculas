@@ -16,3 +16,7 @@
 .carousel-caption h3 {
     font-size: 3em;
 }
+
+.sr-only {
+    display: none;
+}

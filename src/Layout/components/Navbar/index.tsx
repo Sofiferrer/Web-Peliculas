@@ -11,10 +11,8 @@ const Navbarr: FC = () => {
             <Navbar expand="lg">
                 <Navbar.Toggle aria-controls="basic-navbar-nav" className="nav-link" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <a className="navbar-brand" href="/">
-                        <Logo />
-                    </a>
                     <Nav className="mr-auto navbar">
+                        <Nav.Link href="/" className="nav-link"><Logo /></Nav.Link>
                         <Nav.Link href="/" className="nav-link">HOME</Nav.Link>
                         <Nav.Link href="/nuevas" className="nav-link">ULTIMOS LANZAMIENTOS</Nav.Link>
                         <Nav.Link href="/populares" className="nav-link">POPULARES</Nav.Link>
