@@ -1,8 +1,12 @@
-import React, { useState, useEffect, FC } from "react";
+import React, { useState, useEffect, FC } from "react"
 import './style.css';
 import { movie } from '../../../api/movie'
-import { MovieType } from '../../../types/MovieType';
+import { MovieType } from '../../../types/MovieType'
+import { GetMoviesResponse } from '../../../api/movie'
 import { Card, ListGroup } from 'react-bootstrap'
+import { Pagination } from 'react-bootstrap'
+import ReactPaginate from "react-paginate";
+
 
 
 interface Props {
@@ -11,16 +15,20 @@ interface Props {
 
 const Cards: FC<Props> = () => {
 
+    const imgBase = "https://image.tmdb.org/t/p/"
+    const imgWidth = "w500"
+
+
     const [lastMovies, setLastMovies] = useState<MovieType[]>();
 
     useEffect(() => {
-        movie.getLatest().then((response) => {
+        movie.getLatest(1).then((response) => {
             setLastMovies(response);
         })
-    }, []);
+    }, [])
 
-    const imgBase = "https://image.tmdb.org/t/p/"
-    const imgWidth = "w500"
+
+
 
     return (
         <div className="latest-screen">
@@ -38,8 +46,13 @@ const Cards: FC<Props> = () => {
                             </Card>
                         </a>
                     </div>
-                ))
-                }
+                ))}
+                {/* {displayCards}
+                <ReactPaginate
+                previousLabel={'<<'}
+                nextLabel={'>>'}
+                pageCount={pageCount}
+                /> */}
             </div>
         </div>
     )

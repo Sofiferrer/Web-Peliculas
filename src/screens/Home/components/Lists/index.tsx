@@ -3,7 +3,7 @@ import "./style.css";
 import { movie } from "../../../../api/movie"
 import { MovieType } from "../../../../types/MovieType"
 import { Button } from 'react-bootstrap'
-import { CameraReels, Star, Eye } from "react-bootstrap-icons";
+import { Eye } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -12,11 +12,11 @@ interface Props {
 
 const Lists: FC<Props> = () => {
 
-    const [lastMovies, setLastMovies] = useState<MovieType[]>();
+    const [topRatedMovies, setTopRatedMovies] = useState<MovieType[]>();
 
     useEffect(() => {
-        movie.getLatest().then((response) => {
-            setLastMovies(response);
+        movie.getTopRated().then((response) => {
+            setTopRatedMovies(response);
         })
     }, []);
 
@@ -35,11 +35,11 @@ const Lists: FC<Props> = () => {
         <div className="lists-container">
             <div className="list">
                 <div className="list-header">
-                    NUEVOS LANZAMIENTOS <CameraReels />
+                    MEJORES PUNTUADAS
                 </div>
                 <div className="movie-list">
                     <ul className="list-style">
-                        {lastMovies && lastMovies.map((movie: MovieType) => (
+                        {topRatedMovies && topRatedMovies.map((movie: MovieType) => (
                             <li>
                                 <Link to={`/ficha/${movie.id}`}>
                                     <img src={imgBase + imgWidth + movie.poster_path} alt="Avatar" className="list-img" />
@@ -54,7 +54,7 @@ const Lists: FC<Props> = () => {
             </div>
             <div className="list">
                 <div className="list-header">
-                    MAS POPULARES <Star />
+                    MAS POPULARES
                 </div>
                 <div className="movie-list">
                     <ul className="list-style">

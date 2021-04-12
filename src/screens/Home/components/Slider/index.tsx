@@ -12,12 +12,14 @@ const Slider: FC<Props> = () => {
     const [movies, setMovies] = useState<MovieType[]>();
 
     useEffect(() => {
-        movie.getLatest().then((response) => {
+        movie.getLatest(1).then((response) => {
             setMovies(response);
         })
     }, []);
 
-    const topMovies = movies && movies.filter(movie => movie.vote_average >= 7.5)
+    // console.log(movies)
+
+    const topMovies = movies && movies.filter(movie => movie.vote_average >= 7.6)
 
     const imgBase = "https://image.tmdb.org/t/p/"
     const imgWidth = "w1280"
