@@ -3,6 +3,7 @@ import { Layout } from '../../Layout'
 import { Lists } from './components/Lists';
 import { Slider } from './components/Slider';
 
+
 const Home = () => {
 
     return (

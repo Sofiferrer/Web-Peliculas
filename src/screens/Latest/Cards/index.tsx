@@ -5,9 +5,7 @@ import { MovieType } from '../../../types/MovieType'
 import { GetMoviesResponse } from '../../../api/movie'
 import { Card, ListGroup } from 'react-bootstrap'
 import { Pagination } from 'react-bootstrap'
-import ReactPaginate from "react-paginate";
-
-
+import { Paginatior } from "../../Paginator";
 
 interface Props {
     data?: MovieType,
@@ -15,19 +13,42 @@ interface Props {
 
 const Cards: FC<Props> = () => {
 
-    const imgBase = "https://image.tmdb.org/t/p/"
-    const imgWidth = "w500"
+    const [moviesData, setMoviesData] = useState<GetMoviesResponse>();
+    const [totalPages, setTotalPages] = useState<number>()
+    const [page, setPage] = useState(1);
+    const startPaginationDefault: number = 2;
+    const [startPagination, setStartPagination] = useState<number>(2)
+    const [endPagination, setEndPagination] = useState<number>(startPaginationDefault + 2);
 
+
+
+    useEffect(() => {
+        movie.getLatestData()
+            .then((response) => {
+                setMoviesData(response)
+                setTotalPages(response.total_pages)
+            })
+    }, []);
+
+    useEffect(() => {
+        setStartPagination(() => {
+            return page > 1 ? page - 1 : startPaginationDefault
+        })
+        setEndPagination(() => {
+            return page <= 1 ? page + 1 : page
+        })
+    }, [page, totalPages])
 
     const [lastMovies, setLastMovies] = useState<MovieType[]>();
 
     useEffect(() => {
-        movie.getLatest(1).then((response) => {
+        movie.getLatest(page).then((response) => {
             setLastMovies(response);
         })
-    }, [])
+    }, [page])
 
-
+    const imgBase = "https://image.tmdb.org/t/p/"
+    const imgWidth = "w500"
 
 
     return (
@@ -47,16 +68,10 @@ const Cards: FC<Props> = () => {
                         </a>
                     </div>
                 ))}
-                {/* {displayCards}
-                <ReactPaginate
-                previousLabel={'<<'}
-                nextLabel={'>>'}
-                pageCount={pageCount}
-                /> */}
             </div>
+            <Paginatior />
         </div>
     )
-
 }
 
 export { Cards };

@@ -49,6 +49,12 @@
 
 .list-img {
     max-height: 8vh;
+    /* height: 40px;
+    width: 40px;
+    /*background-repeat: no-repeat;*/
+    /* background-position: center;
+    background-size: contain;
+    border-radius: 50%; */
 }
 
 .list-button {

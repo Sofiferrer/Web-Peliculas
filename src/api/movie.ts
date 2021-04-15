@@ -26,7 +26,7 @@ const getLatestData = async (): Promise<GetMoviesResponse> => {
     return data;
 };
 
-const getPopular = async (): Promise<MovieType[]> => {
+const getPopular = async (page: number): Promise<MovieType[]> => {
     const { data } = await api.get<GetMoviesResponse>('movie/popular')
     return data.results;
 };

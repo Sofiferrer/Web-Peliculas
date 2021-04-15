@@ -23,7 +23,7 @@ const Lists: FC<Props> = () => {
     const [popularMovies, setPopularMovies] = useState<MovieType[]>();
 
     useEffect(() => {
-        movie.getPopular().then((response) => {
+        movie.getPopular(1).then((response) => {
             setPopularMovies(response);
         })
     }, []);
@@ -42,7 +42,10 @@ const Lists: FC<Props> = () => {
                         {topRatedMovies && topRatedMovies.map((movie: MovieType) => (
                             <li>
                                 <Link to={`/ficha/${movie.id}`}>
-                                    <img src={imgBase + imgWidth + movie.poster_path} alt="Avatar" className="list-img" />
+                                    <img src={imgBase + imgWidth + movie.poster_path} alt="poster" className="list-img" />
+                                    {/* <div className='list-img' style={{
+                                        backgroundImage: `url(${imgBase + imgWidth + movie.poster_path})`,
+                                    }}></div> */}
                                     <p>{movie.title}</p>
                                     <Button variant="info" className="list-button"><Eye /></Button>
                                 </Link>
