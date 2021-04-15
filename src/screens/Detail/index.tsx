@@ -3,7 +3,6 @@ import { RouteComponentProps } from 'react-router-dom'
 import { File } from './File.tsx/index';
 import { Navbarr, Footer } from '../../Layout/components'
 import { MovieType } from '../../types/MovieType'
-import { VideoType } from '../../types/VideoType'
 import { movie } from '../../api/movie'
 
 const Detail: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
@@ -19,7 +18,7 @@ const Detail: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
             })
     }, []);
 
-    console.log(movieFile)
+    //console.log(movieFile)
 
     return (
 
