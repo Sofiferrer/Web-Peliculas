@@ -5,13 +5,15 @@ import { GetMoviesResponse } from '../../api/movie'
 import { Pagination } from 'react-bootstrap'
 import { useHistory } from 'react-router'
 
+interface Props {
+    pag: number
+}
 
-
-const Paginator: FC = () => {
+const Paginator: FC<Props> = ({ pag }) => {
 
     const [moviesData, setMoviesData] = useState<GetMoviesResponse>();
     const [totalPages, setTotalPages] = useState<number>();
-    const [page, setPage] = useState<number>();
+    const [page, setPage] = useState<number>(pag);
     const startPaginationDefault: number = 2;
     const [startPagination, setStartPagination] = useState<number>(2);
     const [endPagination, setEndPagination] = useState<number>();
@@ -22,6 +24,7 @@ const Paginator: FC = () => {
     useEffect(() => {
         movie.getLatestData()
             .then((response) => {
+                console.log(response)
                 setMoviesData(response)
                 setTotalPages(response.total_pages)
             })
@@ -31,16 +34,20 @@ const Paginator: FC = () => {
         setStartPagination(() => {
             return page! > 1 ? page! - 1 : startPaginationDefault
         })
-        console.log(startPagination)
+        // console.log(startPagination)
 
         setEndPagination(() => {
             return page! <= 1 ? page! + 1 : page
         })
-        console.log(endPagination)
+        // console.log(endPagination)
 
-        history.push(`/nuevas/${page}`)
+        
         console.log(page)
-    }, [page, totalPages])
+    }, [history, page, startPagination])
+
+    useEffect(() => {
+        history.push(`/nuevas/${page}`)
+    }, [page, history])
 
     return (
         <div className='paginator-container'>

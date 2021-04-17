@@ -6,14 +6,14 @@ import { RouteComponentProps } from "react-router";
 
 const Latest: FC<RouteComponentProps<{ pag: string }>> = ({ match }) => {
 
-    const pag = match.params.pag
-    console.log(pag)
+    const page = match.params.pag
+    console.log(page)
 
     return (
         <div>
             <Layout>
-                <Cards />
-                <Paginator />
+                <Cards pag={parseInt(page)}/>
+                <Paginator pag={parseInt(page)} />
             </Layout>
         </div>
     );

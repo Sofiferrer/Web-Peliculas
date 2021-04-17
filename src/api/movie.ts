@@ -22,7 +22,7 @@ const getLatest = async (page: number): Promise<MovieType[]> => {
 };
 
 const getLatestData = async (): Promise<GetMoviesResponse> => {
-    const { data } = await api.get<GetMoviesResponse>('movie/latest')
+    const { data } = await api.get<GetMoviesResponse>('movie/upcoming')
     return data;
 };
 

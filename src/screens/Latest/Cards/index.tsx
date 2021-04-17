@@ -8,21 +8,18 @@ import { Pagination } from 'react-bootstrap'
 import { Paginator } from "../../Paginator";
 
 interface Props {
-    data?: MovieType,
+    pag: number
 }
 
-const Cards: FC<Props> = () => {
-
-    const [page, setPage] = useState(1);
-    const startPaginationDefault: number = 2;
+const Cards: FC<Props> = ({ pag }) => {
 
     const [lastMovies, setLastMovies] = useState<MovieType[]>();
 
     useEffect(() => {
-        movie.getLatest(page).then((response) => {
+        movie.getLatest(pag).then((response) => {
             setLastMovies(response);
         })
-    }, [page])
+    }, [pag])
 
     const imgBase = "https://image.tmdb.org/t/p/"
     const imgWidth = "w500"
