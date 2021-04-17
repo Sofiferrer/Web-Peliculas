@@ -1,16 +1,13 @@
 import React, { FC } from "react";
 import "./style.css"
-import Prueba from '../../../img/film.png'
 
 const Footer: FC = () => {
     return (
         <div className="footer-container">
             <div className="footer-contain">
-                <div>
-                    <img src={Prueba} alt="Foto" className="footer-img" />
-                </div>
                 <div className="footer-text">
-                    <p>MOVIE APP</p>
+                    <p>MOVIE APP     Desarrollada por </p>
+                    <a target="_blank" href="https://www.linkedin.com/in/sofia-ferrer-038575187/"><span>Sofia Ferrer</span></a>
                 </div>
             </div>
         </div>

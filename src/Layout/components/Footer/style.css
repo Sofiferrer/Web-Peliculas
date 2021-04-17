@@ -14,10 +14,12 @@
 }
 
 .footer-text {
-    align-self: flex-end;
+    display: flex;
+    text-align: center;
     color: black;
 }
 
-.footer-img {
-    height: 10vh;
+.footer-text a {
+    color: black;
+    text-decoration: none;
 }
