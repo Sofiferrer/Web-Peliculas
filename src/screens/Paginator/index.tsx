@@ -3,17 +3,19 @@ import './style.css'
 import { movie } from '../../api'
 import { GetMoviesResponse } from '../../api/movie'
 import { Pagination } from 'react-bootstrap'
+import { useHistory } from 'react-router'
 
 
 
-const Paginatior: FC = () => {
+const Paginator: FC = () => {
 
     const [moviesData, setMoviesData] = useState<GetMoviesResponse>();
-    const [totalPages, setTotalPages] = useState<number>()
-    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState<number>();
+    const [page, setPage] = useState<number>();
     const startPaginationDefault: number = 2;
-    const [startPagination, setStartPagination] = useState<number>(2)
-    const [endPagination, setEndPagination] = useState<number>(startPaginationDefault + 2);
+    const [startPagination, setStartPagination] = useState<number>(2);
+    const [endPagination, setEndPagination] = useState<number>();
+    const history = useHistory();
 
 
 
@@ -27,15 +29,16 @@ const Paginatior: FC = () => {
 
     useEffect(() => {
         setStartPagination(() => {
-            return page > 1 ? page - 1 : startPaginationDefault
+            return page! > 1 ? page! - 1 : startPaginationDefault
         })
         console.log(startPagination)
 
         setEndPagination(() => {
-            return page <= 1 ? page + 1 : page
+            return page! <= 1 ? page! + 1 : page
         })
         console.log(endPagination)
 
+        history.push(`/nuevas/${page}`)
         console.log(page)
     }, [page, totalPages])
 
@@ -43,7 +46,7 @@ const Paginatior: FC = () => {
         <div className='paginator-container'>
             {(Array(moviesData?.total_pages))}
             <Pagination>
-                <Pagination.Prev onClick={() => setPage(page > 1 ? page - 1 : page)} />
+                <Pagination.Prev onClick={() => setPage(page! > 1 ? page! - 1 : page)} />
                 <Pagination.Item onClick={() => setPage(1)}>{1}</Pagination.Item>
                 <Pagination.Ellipsis />
                 {Array.from(Array(totalPages).keys()).slice(startPagination, endPagination).map((index) => {
@@ -51,10 +54,10 @@ const Paginatior: FC = () => {
                 })}
                 <Pagination.Ellipsis />
                 <Pagination.Item onClick={() => setPage(totalPages!)}>{totalPages}</Pagination.Item>
-                <Pagination.Next onClick={() => setPage(page < totalPages! ? page + 1 : page)} />
+                <Pagination.Next onClick={() => setPage(page! < totalPages! ? page! + 1 : page)} />
             </Pagination>
         </div>
     )
 }
 
-export { Paginatior };
+export { Paginator };

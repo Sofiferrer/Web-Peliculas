@@ -5,7 +5,7 @@ import { MovieType } from '../../../types/MovieType';
 import { Card, ListGroup } from 'react-bootstrap'
 import { GetMoviesResponse } from '../../../api/movie'
 import { Pagination } from 'react-bootstrap'
-import { Paginatior } from "../../Paginator";
+import { Paginator } from "../../Paginator";
 
 
 interface Props {
@@ -70,7 +70,6 @@ const Cards: FC<Props> = () => {
                 ))
                 }
             </div>
-            <Paginatior />
         </div>
     )
 

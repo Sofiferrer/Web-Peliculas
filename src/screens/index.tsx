@@ -12,7 +12,7 @@ const Screens: FC = () => {
             <Switch>
                 <Route path="/ficha/:id" component={Detail} />
                 <Route path="/buscar" component={Search} />
-                <Route path="/nuevas" component={Latest} />
+                <Route path="/nuevas/:pag" component={Latest} />
                 <Route path="/populares" component={Popular} />
                 <Route path="" component={Home} />
             </Switch>
