@@ -2,12 +2,14 @@ import React, { useState, useEffect, FC } from "react";
 import "./style.css";
 import { movie } from "../../../../api/movie"
 import { MovieType } from "../../../../types/MovieType"
+import { MouseEvent } from "../../../../types/MouseEventType"
 import { Button } from 'react-bootstrap'
-import { Eye } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
+import { Slider } from "../Slider";
 
 interface Props {
     data?: MovieType,
+    e?: MouseEvent,
 }
 
 const Lists: FC<Props> = () => {
@@ -31,6 +33,32 @@ const Lists: FC<Props> = () => {
     const imgBase = "https://image.tmdb.org/t/p/"
     const imgWidth = "w500"
 
+    // const list = document.querySelector('.list-style')
+    // let isDown = false;
+    // let startX: number;
+    // let scrollLeft: number;
+
+
+    // list?.addEventListener('mousedown', (e) => {
+    //     let isDown = true;
+    //     list.classList.add('active');
+    //     startX = e.pageX - list.offsetLeft
+    //     scrollLeft = list.scrollLeft;
+    // });
+    // list?.addEventListener('mouseleave', () => {
+    //     let isDown = false;
+    // });
+    // list?.addEventListener('mouseup', () => {
+    //     let isDown = false;
+    // });
+    // list?.addEventListener('mousemove', (e) => {
+    //     if (!isDown) return;
+    //     e.preventDefault();
+    //     const x = e.pageX - list.offsetLeft;
+    //     const move = x - startX;
+    //     list.scrollLeft = scrollLeft - move;
+    // });
+
     return (
         <div className="lists-container">
             <div className="list">
@@ -47,7 +75,7 @@ const Lists: FC<Props> = () => {
                                         backgroundImage: `url(${imgBase + imgWidth + movie.poster_path})`,
                                     }}></div> */}
                                     <p>{movie.title}</p>
-                                    <Button variant="info" className="list-button"><Eye /></Button>
+                                    <Button variant="info" className="list-button">ver</Button>
                                 </Link>
                             </li>
                         ))
@@ -66,7 +94,7 @@ const Lists: FC<Props> = () => {
                                 <Link to={`/ficha/${movie.id}`}>
                                     <img src={imgBase + imgWidth + movie.poster_path} alt="Avatar" className="list-img" />
                                     <p>{movie.title}</p>
-                                    <Button variant="info" className="list-button"><Eye /></Button>
+                                    <Button variant="info" className="list-button">ver</Button>
                                 </Link>
                             </li>
                         ))
