@@ -3,10 +3,11 @@ import './style.css'
 import { movie } from '../../api'
 import { GetMoviesResponse } from '../../api/movie'
 import { Pagination } from 'react-bootstrap'
+import { useHistory } from 'react-router'
 
 
 
-const Paginatior: FC = () => {
+const Paginator: FC = () => {
 
     const [moviesData, setMoviesData] = useState<GetMoviesResponse>();
     const [totalPages, setTotalPages] = useState<number>()
@@ -14,7 +15,7 @@ const Paginatior: FC = () => {
     const startPaginationDefault: number = 2;
     const [startPagination, setStartPagination] = useState<number>(2)
     const [endPagination, setEndPagination] = useState<number>(startPaginationDefault + 2);
-
+    let history = useHistory();
 
 
     useEffect(() => {
@@ -29,13 +30,14 @@ const Paginatior: FC = () => {
         setStartPagination(() => {
             return page > 1 ? page - 1 : startPaginationDefault
         })
-        console.log(startPagination)
+        /*console.log(startPagination)*/
 
         setEndPagination(() => {
             return page <= 1 ? page + 1 : page
         })
-        console.log(endPagination)
+        /*console.log(endPagination)*/
 
+        history.push(`/nuevas/${page}`);
         console.log(page)
     }, [page, totalPages])
 
@@ -57,4 +59,4 @@ const Paginatior: FC = () => {
     )
 }
 
-export { Paginatior };
+export { Paginator };

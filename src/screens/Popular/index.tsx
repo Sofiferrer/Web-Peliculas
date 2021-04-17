@@ -1,19 +1,27 @@
-import React, { FC } from "react";
-import { MovieType } from '../../types/MovieType';
+import React, { FC, useState, useEffect } from "react";
+import { RouteComponentProps } from 'react-router-dom'
 import { Layout } from '../../Layout'
-import { Cards } from './Cards'
+import { Cards } from '../Cards'
+import { Paginator } from "../Paginator";
 
 
-interface Props {
-    data?: MovieType,
-}
+const Popular: FC<RouteComponentProps<{ pag: string }>> = ({ match }) => {
 
-const Popular: FC<Props> = () => {
+    let pag = match.params.pag;
+    const [renderPag, setRenderPag] = useState('1');
+
+    useEffect(() => {
+        setRenderPag(pag)
+    }, [pag]);
+
+    console.log(renderPag)
+    console.log(pag)
 
     return (
         <div>
             <Layout>
-                <Cards />
+                <Cards pag={renderPag} />
+                <Paginator />
             </Layout>
         </div>
     );
