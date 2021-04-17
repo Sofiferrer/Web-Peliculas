@@ -1,11 +1,8 @@
 import React, { useState, useEffect, FC } from "react"
 import './style.css';
-import { movie } from '../../../api/movie'
-import { MovieType } from '../../../types/MovieType'
-import { GetMoviesResponse } from '../../../api/movie'
+import { movie } from '../../api/movie'
+import { MovieType } from '../../types/MovieType'
 import { Card, ListGroup } from 'react-bootstrap'
-import { Pagination } from 'react-bootstrap'
-import { Paginator } from "../../Paginator";
 
 interface Props {
     pag: number

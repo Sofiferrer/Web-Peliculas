@@ -1,19 +1,17 @@
 import React, { FC } from "react";
-import { Cards } from "./Cards";
 import { Layout } from '../../Layout'
-import { Paginator } from '../Paginator'
+import { Paginator, Cards } from '../../components'
 import { RouteComponentProps } from "react-router";
 
 const Latest: FC<RouteComponentProps<{ pag: string }>> = ({ match }) => {
 
-    const page = match.params.pag
-    console.log(page)
+    const page = parseInt(match.params.pag)
 
     return (
         <div>
             <Layout>
-                <Cards pag={parseInt(page)}/>
-                <Paginator pag={parseInt(page)} />
+                <Cards pag={page} />
+                <Paginator pag={page} />
             </Layout>
         </div>
     );

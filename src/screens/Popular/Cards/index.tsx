@@ -4,8 +4,6 @@ import { movie } from '../../../api/movie'
 import { MovieType } from '../../../types/MovieType';
 import { Card, ListGroup } from 'react-bootstrap'
 import { GetMoviesResponse } from '../../../api/movie'
-import { Pagination } from 'react-bootstrap'
-import { Paginator } from "../../Paginator";
 
 
 interface Props {
