@@ -9,7 +9,7 @@ interface Props {
     pag: number
 }
 
-const Paginator: FC<Props> = ({ pag,  }) => {
+const Paginator: FC<Props> = ({ pag }) => {
 
     const [moviesData, setMoviesData] = useState<GetMoviesResponse>();
     const [totalPages, setTotalPages] = useState<number>();
@@ -39,7 +39,7 @@ const Paginator: FC<Props> = ({ pag,  }) => {
         })
         // console.log(endPagination)
 
-        
+
         console.log(page)
     }, [history, page, startPagination])
 

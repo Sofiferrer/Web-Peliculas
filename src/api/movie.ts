@@ -1,8 +1,6 @@
 import { api } from "./api"
 import { MovieType } from "../types/MovieType"
 import { VideoType } from "../types/VideoType"
-//import {DataType} from '../types/DataType'
-
 
 export type GetMoviesResponse = {
     results: MovieType[],
@@ -11,10 +9,10 @@ export type GetMoviesResponse = {
     total_results: number
 }
 
-type GetVideoResponse = {
-    id: string,
-    results: VideoType[],
-}
+// type GetVideoResponse = {
+//     id: string,
+//     results: VideoType[],
+// }
 
 const getLatest = async (page: number): Promise<MovieType[]> => {
     const { data } = await api.get<GetMoviesResponse>(`movie/upcoming?page=${page}`)
