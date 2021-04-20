@@ -12,7 +12,7 @@ const Slider: FC<Props> = () => {
     const [movies, setMovies] = useState<MovieType[]>();
 
     useEffect(() => {
-        movie.getLatest(1).then((response) => {
+        movie.getLatest('1').then((response) => {
             setMovies(response);
         })
     }, []);

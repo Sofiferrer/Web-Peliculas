@@ -40,6 +40,7 @@ const Paginator: FC<Props> = ({ pag }) => {
         // console.log(endPagination)
 
 
+        history.push(`/nuevas/${page}`);
         console.log(page)
     }, [history, page, startPagination])
 

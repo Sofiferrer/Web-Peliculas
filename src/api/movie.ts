@@ -14,7 +14,7 @@ export type GetMoviesResponse = {
 //     results: VideoType[],
 // }
 
-const getLatest = async (page: number): Promise<MovieType[]> => {
+const getLatest = async (page: string): Promise<MovieType[]> => {
     const { data } = await api.get<GetMoviesResponse>(`movie/upcoming?page=${page}`)
     return data.results;
 };

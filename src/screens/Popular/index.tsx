@@ -1,5 +1,4 @@
-import React, { FC } from "react";
-import { MovieType } from '../../types/MovieType';
+import React, { FC, useState, useEffect } from "react";
 import { Layout } from '../../Layout'
 import { Cards, Paginator } from "../../components";
 import { RouteComponentProps } from "react-router";
