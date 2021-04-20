@@ -1,27 +1,20 @@
 import React, { FC, useState, useEffect } from "react";
-import { RouteComponentProps } from 'react-router-dom'
 import { Layout } from '../../Layout'
-import { Cards } from '../Cards'
-import { Paginator } from "../Paginator";
+import { Cards, Paginator } from "../../components";
+import { RouteComponentProps } from "react-router";
+
+
 
 
 const Popular: FC<RouteComponentProps<{ pag: string }>> = ({ match }) => {
 
-    let pag = match.params.pag;
-    const [renderPag, setRenderPag] = useState('1');
-
-    useEffect(() => {
-        setRenderPag(pag)
-    }, [pag]);
-
-    console.log(renderPag)
-    console.log(pag)
+    const page = match.params.pag
 
     return (
         <div>
             <Layout>
-                <Cards pag={renderPag} />
-                <Paginator />
+                <Cards pag={parseInt(page)} />
+                <Paginator pag={parseInt(page)} />
             </Layout>
         </div>
     );

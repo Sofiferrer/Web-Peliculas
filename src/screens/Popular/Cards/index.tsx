@@ -4,7 +4,6 @@ import { movie } from '../../../api/movie'
 import { MovieType } from '../../../types/MovieType';
 import { Card, ListGroup } from 'react-bootstrap'
 import { GetMoviesResponse } from '../../../api/movie'
-import { Paginator } from "../../Paginator";
 
 
 interface Props {
@@ -68,7 +67,7 @@ const Cards: FC<Props> = () => {
                     </div>
                 ))
                 }
-            </div> */}
+            </div>
         </div>
     )
 

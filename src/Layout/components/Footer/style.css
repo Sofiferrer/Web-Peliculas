@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     height: 10vh;
+    align-items: center;
     background-image: url(../../../img/ORVZE80.jpg);
     background-size: 12%;
     margin-bottom: 0px;
@@ -9,17 +10,46 @@
 
 .footer-contain {
     display: flex;
+    height: 70%;
+    width: 80%;
     justify-content: center;
     background-color: rgb(240, 248, 255, 0.8);
+    border-radius: 10px;
 }
 
 .footer-text {
+    width: 100%;
     display: flex;
-    text-align: center;
-    color: black;
+    justify-content: space-around;
+    align-items: baseline;
 }
 
-.footer-text a {
+.footer-p {
+    height: 100%;
+    width: fit-content;
+    text-align: center;
+    font-size: x-large;
+    color: black;
+    text-decoration: none;
+}
+
+.footer-span {
+    height: 100%;
+    width: fit-content;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+}
+
+.footer-a {
+    height: 100%;
+    width: 20%;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+}
+
+.footer-a a {
     color: black;
     text-decoration: none;
 }
