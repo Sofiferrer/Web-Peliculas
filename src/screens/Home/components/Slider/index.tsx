@@ -17,8 +17,6 @@ const Slider: FC<Props> = () => {
         })
     }, []);
 
-    // console.log(movies)
-
     const topMovies = movies && movies.filter(movie => movie.vote_average >= 7.6)
 
     const imgBase = "https://image.tmdb.org/t/p/"

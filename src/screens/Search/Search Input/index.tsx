@@ -21,7 +21,6 @@ const SearchInput: FC = () => {
     function onChange(e: ChangeEvent<HTMLInputElement>) {
         setQuery(e.target.value)
         getSearch(query);
-        // console.log(e.target.value)
     }
 
     const imgBase = "https://image.tmdb.org/t/p/"

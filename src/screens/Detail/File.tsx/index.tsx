@@ -1,5 +1,4 @@
 import React, { FC, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'
 import './style.css'
 import { movie } from '../../../api'
 import { VideoType } from '../../../types/VideoType'

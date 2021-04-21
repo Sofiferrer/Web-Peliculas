@@ -18,8 +18,6 @@ const Detail: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
             })
     }, []);
 
-    //console.log(movieFile)
-
     return (
 
         <>
@@ -29,7 +27,6 @@ const Detail: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
                 : 'No se encontro la pelicula'
             }
             <Footer />
-
         </>
 
     );
