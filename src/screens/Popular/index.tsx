@@ -1,7 +1,6 @@
 import React, { FC, useState, useEffect } from "react";
 import { Layout } from '../../Layout'
 import { movie } from '../../api/movie'
-import { GetMoviesResponse } from '../../api/movie'
 import { Cards, Paginator } from "../../components";
 import { RouteComponentProps } from "react-router";
 import { MovieType } from '../../types/MovieType'

@@ -1,7 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
 import './style.css'
-import { movie } from '../../api'
-import { GetMoviesResponse } from '../../api/movie'
 import { Pagination } from 'react-bootstrap'
 import { useHistory } from 'react-router'
 
@@ -11,22 +9,10 @@ interface Props {
 
 const Paginator: FC<Props> = ({ totPages }) => {
 
-    // const [moviesData, setMoviesData] = useState<GetMoviesResponse>();
-    // const [totalPages, setTotalPages] = useState<number>(totPages);
     const [page, setPage] = useState<number>(1);
-    // const startPaginationDefault: number = 2;
     const [startPagination, setStartPagination] = useState<number>(2);
     const [endPagination, setEndPagination] = useState<number>();
     const history = useHistory();
-
-    // useEffect(() => {
-    //     movie.getLatestData()
-    //         .then((response) => {
-    //             console.log(response)
-    //             setMoviesData(response)
-    //             setTotalPages(response.total_pages)
-    //         })
-    // }, []);
 
     useEffect(() => {
         setStartPagination(() => {
