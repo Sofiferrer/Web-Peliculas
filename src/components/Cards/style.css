@@ -1,4 +1,4 @@
-/* .cards-container {
+.cards-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -26,10 +26,13 @@
 .card {
     background-color: rgb(232, 205, 88);
     text-align: center;
-    height: 75vh;
-    align-content: space-between;
+    min-height: 75vh;
+}
+
+.card-img {
+    height: 50vh;
 }
 
 .card-title {
     font-size: 1em;
-} */
+}

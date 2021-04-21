@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { MovieType } from '../../types/MovieType';
 import { Layout } from '../../Layout'
 import { SearchInput } from './Search Input'
 
