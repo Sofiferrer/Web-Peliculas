@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FC, useState } from "react"
 import './style.css'
+import { useHistory } from 'react-router'
 import { api } from '../../../api';
 import noImg from '../../../img/image-not-available.png'
 import { MovieType } from '../../../types/MovieType';
@@ -10,6 +11,7 @@ const SearchInput: FC = () => {
 
     const [query, setQuery] = useState("")
     const [searchMovies, setSearchMovies] = useState<MovieType[]>();
+    const history = useHistory();
 
     const getSearch = async (query: string): Promise<MovieType[]> => {
         const { data } = await api.get('search/movie?query=' + query)
@@ -21,6 +23,7 @@ const SearchInput: FC = () => {
     function onChange(e: ChangeEvent<HTMLInputElement>) {
         setQuery(e.target.value)
         getSearch(query);
+        history.push(`/buscar/${e.currentTarget.value}`)
     }
 
     const imgBase = "https://image.tmdb.org/t/p/"
@@ -34,7 +37,7 @@ const SearchInput: FC = () => {
                 </div>
                 <div className="cards-container">
                     {searchMovies && searchMovies.map((movie: MovieType) => (
-                        <div className="card-frame">
+                        <div key={movie.id} className="card-frame">
                             <a href={"/ficha/" + movie.id}>
                                 <Card className="card">
                                     <Card.Img variant="top" className="card-img" src={movie.poster_path ? imgBase + imgWidth + movie.poster_path : noImg} />
