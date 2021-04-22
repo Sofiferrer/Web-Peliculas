@@ -5,7 +5,6 @@ import { MovieType } from "../../../../types/MovieType"
 import { MouseEvent } from "../../../../types/MouseEventType"
 import { Button } from 'react-bootstrap'
 import { Link } from "react-router-dom";
-import { Slider } from "../Slider";
 
 interface Props {
     data?: MovieType,
@@ -68,12 +67,9 @@ const Lists: FC<Props> = () => {
                 <div className="movie-list">
                     <ul className="list-style">
                         {topRatedMovies && topRatedMovies.map((movie: MovieType) => (
-                            <li>
+                            <li key={movie.id}>
                                 <Link to={`/ficha/${movie.id}`}>
                                     <img src={imgBase + imgWidth + movie.poster_path} alt="poster" className="list-img" />
-                                    {/* <div className='list-img' style={{
-                                        backgroundImage: `url(${imgBase + imgWidth + movie.poster_path})`,
-                                    }}></div> */}
                                     <p>{movie.title}</p>
                                     <Button variant="info" className="list-button">ver</Button>
                                 </Link>
@@ -90,7 +86,7 @@ const Lists: FC<Props> = () => {
                 <div className="movie-list">
                     <ul className="list-style">
                         {popularMovies && popularMovies.map((movie: MovieType) => (
-                            <li>
+                            <li key={movie.id}>
                                 <Link to={`/ficha/${movie.id}`}>
                                     <img src={imgBase + imgWidth + movie.poster_path} alt="Avatar" className="list-img" />
                                     <p>{movie.title}</p>

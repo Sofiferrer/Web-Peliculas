@@ -4,6 +4,7 @@ import { movie } from '../../../api'
 import { VideoType } from '../../../types/VideoType'
 import { MovieType } from '../../../types/MovieType';
 import { Genre } from '../../../types/MovieType'
+import noImg from '../../../img/image-not-available.png'
 
 interface Props {
     peli: MovieType,
@@ -11,15 +12,15 @@ interface Props {
 
 const File: FC<Props> = ({ peli }) => {
 
-    const [video, setVideo] = useState<VideoType | undefined>(undefined);
+    const [video, setVideo] = useState<VideoType | undefined>();
 
     useEffect(() => {
         movie.getVideo(`${peli.id}`)
             .then(response => {
                 setVideo(response)
             })
-    }, []);
-
+    }, [peli.id]);
+    console.log(peli);
     console.log(video);
 
     const imgBase = "https://image.tmdb.org/t/p/"
@@ -29,19 +30,20 @@ const File: FC<Props> = ({ peli }) => {
 
     return (
         <div className="detail-screen" style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imgBase + backgrounWidth + peli.backdrop_path})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${peli.backdrop_path ? imgBase + backgrounWidth + peli.backdrop_path : noImg})`,
         }}>
             <div className="container">
                 <div className="poster">
                     <div className="poster-img" style={{
-                        backgroundImage: `url(${imgBase + posterWidth + peli.poster_path})`,
+                        backgroundImage: `url(${peli.poster_path ? imgBase + posterWidth + peli.poster_path : noImg})`,
                     }}>
                     </div>
                 </div>
                 <div className="info">
                     <div className="header">
                         <h2>{peli.title}<span>{peli.release_date.split('-', 1)}</span></h2>
-                        <a target="_blank" href={videoBase + video?.results[0].key}><span>Ver Trailer</span></a>
+                        {video?.results[0] ? <a target="_blank" rel="noreferrer"
+                            href={videoBase + video?.results[0].key!}><span>Ver Trailer</span></a> : <span>No hay trailer disponible</span>}
                     </div>
                     <div className="content">
                         <h6>SINAPSIS</h6>
@@ -51,7 +53,7 @@ const File: FC<Props> = ({ peli }) => {
                         <h6>GENEROS</h6>
                         <ul>
                             {peli.genres && peli.genres.map((genre: Genre) => (
-                                <li>
+                                <li key={genre.name}>
                                     {genre.name}
                                 </li>
                             ))

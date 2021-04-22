@@ -22,7 +22,7 @@ const Paginator: FC<Props> = ({ totPages }) => {
         setEndPagination(() => {
             return page! > startPagination ? page! + 2 : page
         })
-    }, [history, page, startPagination])
+    }, [page, startPagination])
 
     useEffect(() => {
         history.push(`${page}`)
@@ -36,7 +36,7 @@ const Paginator: FC<Props> = ({ totPages }) => {
                 <Pagination.Item onClick={() => setPage(1)}>{1}</Pagination.Item>
                 <Pagination.Ellipsis />
                 {Array.from(Array(totPages).keys()).slice(startPagination, endPagination).map((index) => {
-                    return <Pagination.Item onClick={() => setPage(index)}>{index}</Pagination.Item>
+                    return <Pagination.Item key={index} onClick={() => setPage(index)}>{index}</Pagination.Item>
                 })}
                 <Pagination.Ellipsis />
                 <Pagination.Item onClick={() => setPage(totPages!)}>{totPages}</Pagination.Item>

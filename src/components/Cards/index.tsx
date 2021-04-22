@@ -18,7 +18,7 @@ const Cards: FC<Props> = ({ moviesList }) => {
     return (
         <div className="cards-container">
             {moviesList && moviesList.map((movie: MovieType) => (
-                <div className="card-frame">
+                <div key={movie.id} className="card-frame">
                     <a href={"/ficha/" + movie.id}>
                         <Card className="card">
                             <Card.Img variant="top" className="card-img" src={movie.poster_path ? imgBase + imgWidth + movie.poster_path : noImg} />

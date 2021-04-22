@@ -8,7 +8,8 @@ const Footer: FC = () => {
                 <div className="footer-text">
                     <div className="footer-p"><p>MOVIE APP</p></div>
                     <div className="footer-span"><span>Desarrollada por</span></div>
-                    <div className="footer-a"><a target="_blank" href="https://www.linkedin.com/in/sofia-ferrer-038575187/"><span>Sofia Ferrer</span></a></div>
+                    <div className="footer-a"><a target="_blank" rel="noreferrer"
+                        href="https://www.linkedin.com/in/sofia-ferrer-038575187/"><span>Sofia Ferrer</span></a></div>
                 </div>
             </div>
         </div>

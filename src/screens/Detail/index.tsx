@@ -16,7 +16,7 @@ const Detail: FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
             .then(response => {
                 setMovieFile(response)
             })
-    }, []);
+    }, [id]);
 
     return (
 

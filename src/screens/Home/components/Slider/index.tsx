@@ -27,7 +27,7 @@ const Slider: FC<Props> = () => {
         <div>
             <Carousel>
                 {topMovies && topMovies.map((movie: MovieType) => (
-                    <Carousel.Item>
+                    <Carousel.Item key={movie.id}>
                         <img
                             className="d-block w-100 slider-img"
                             src={imgBase + imgWidth + movie.backdrop_path}
